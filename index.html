@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROYECTA-IA | Título y Objetivo General</title>
+  <meta name="description" content="Revisor de correspondencia entre el título y el objetivo general del Proyecto de Grado.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="accessGate" class="access-gate">
+    <div class="access-card">
+      <div class="access-logo">P</div>
+      <h2>Acceso a PROYECTA-IA</h2>
+      <p class="access-subtitle">Taller de Tesis II · Paralelo 9A · Ingeniería Electrónica</p>
+      <p>
+        Esta herramienta está habilitada únicamente para los estudiantes del paralelo y el docente.
+        Ingresa tu número de Carnet de Identidad.
+      </p>
+      <label for="ciAccess">Número de C.I.</label>
+      <input id="ciAccess" type="password" inputmode="numeric" autocomplete="off"
+             placeholder="Solo números" aria-describedby="accessPrivacy">
+      <button id="accessBtn" class="primary access-button" type="button">Ingresar</button>
+      <p id="accessMessage" class="access-message" aria-live="polite"></p>
+      <p id="accessPrivacy" class="access-privacy">
+        El número ingresado se verifica localmente en tu navegador y no se guarda en esta página.
+      </p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <h1>PROYECTA-IA</h1>
+          <p>Revisor de Proyecto de Grado · Ingeniería Electrónica</p>
+          <p class="author">Realizado por: Luis Cabezas Tito, Ph. D.</p>
+        </div>
+      </div>
+      <div class="badge">Título ↔ Objetivo General</div>
+      <button id="logoutBtn" class="logout-btn hidden" type="button">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h2>Comprueba si tu título coincide con tu objetivo general</h2>
+      <p>
+        En este módulo se aplica la regla metodológica usada en clase:
+        <strong>el título debe corresponder al objetivo general eliminando únicamente
+        el verbo inicial en infinitivo.</strong>
+      </p>
+      <div class="notice">
+        <strong>Importante:</strong> el sistema no crea tu objetivo general. Solo comprueba
+        la correspondencia entre el objetivo que ya formulaste y el título que propones.
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>1. Regla de correspondencia</h3>
+      <p class="rule">
+        <strong>OBJETIVO GENERAL</strong> = <span class="verb">VERBO EN INFINITIVO</span> + contenido del proyecto<br>
+        <strong>TÍTULO</strong> = contenido del proyecto
+      </p>
+
+      <div class="example">
+        <h4>Ejemplo 1</h4>
+        <p><strong>Objetivo general:</strong> Desarrollar un sistema con visión artificial para el reconocimiento de placas vehiculares para el registro automatizado de la información en la tranca Santiago de Chacoma.</p>
+        <p><strong>Título correcto:</strong> Sistema con visión artificial para el reconocimiento de placas vehiculares para el registro automatizado de la información en la tranca Santiago de Chacoma.</p>
+      </div>
+
+      <div class="example">
+        <h4>Ejemplo 2</h4>
+        <p><strong>Objetivo general:</strong> Diseñar un prototipo y sistema de monitoreo IoT para la medición del consumo de energía eléctrica en el colegio Humboldt de la ciudad de La Paz, Bolivia.</p>
+        <p><strong>Título correcto:</strong> Prototipo y sistema de monitoreo IoT para la medición del consumo de energía eléctrica en el colegio Humboldt de la ciudad de La Paz, Bolivia.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>2. Introduce tus datos</h3>
+
+      <label for="objective">Objetivo general</label>
+      <textarea id="objective" rows="5" placeholder="Escribe aquí tu objetivo general completo."></textarea>
+
+      <label for="title">Título propuesto</label>
+      <textarea id="title" rows="4" placeholder="Escribe aquí el título de tu Proyecto de Grado."></textarea>
+
+      <div class="actions">
+        <button id="reviewBtn" class="primary">Comprobar correspondencia</button>
+        <button id="clearBtn" class="secondary">Limpiar</button>
+      </div>
+    </section>
+
+    <section id="results" class="card hidden" aria-live="polite">
+      <div class="results-header">
+        <h3>DICTAMEN DE CORRESPONDENCIA</h3>
+        <div id="statusBadge" class="result-badge"></div>
+      </div>
+
+      <div id="summary" class="summary-box"></div>
+
+      <div class="comparison">
+        <div>
+          <h4>Verbo inicial detectado</h4>
+          <p id="detectedVerb"></p>
+        </div>
+        <div>
+          <h4>Título esperado según la regla</h4>
+          <p id="expectedTitle"></p>
+        </div>
+        <div>
+          <h4>Título escrito por el estudiante</h4>
+          <p id="studentTitle"></p>
+        </div>
+      </div>
+
+      <div class="feedback-grid">
+        <div>
+          <h4>A. Lo que está correcto</h4>
+          <ul id="strengths"></ul>
+        </div>
+        <div>
+          <h4>B. Lo que debes corregir</h4>
+          <ul id="corrections"></ul>
+        </div>
+      </div>
+
+      <div id="differencesBox" class="differences hidden">
+        <h4>Diferencias encontradas</h4>
+        <div id="differences"></div>
+      </div>
+
+      <div class="method-box">
+        <h4>Criterios aplicados por PROYECTA-IA</h4>
+        <ul>
+          <li>El objetivo general debe comenzar con un verbo en infinitivo.</li>
+          <li>El título no debe conservar ese verbo inicial.</li>
+          <li>Después de retirar el verbo, el contenido del título debe coincidir con el objetivo general.</li>
+          <li>La comparación ignora diferencias menores de mayúsculas, espacios finales y punto final.</li>
+          <li>Si se agregan, eliminan o cambian palabras después del verbo, se considera que existe una diferencia metodológica.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>3. Antes de entregar</h3>
+      <ol class="guide">
+        <li>Comprueba que el objetivo general empiece con un solo verbo claro en infinitivo.</li>
+        <li>Elimina únicamente ese verbo para construir el título.</li>
+        <li>No agregues nuevas ideas al título que no estén en el objetivo general.</li>
+        <li>No elimines elementos del objetivo general al convertirlo en título.</li>
+        <li>Revisa que lugar, tecnología, población, sistema o aplicación aparezcan de la misma manera en ambos.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>PROYECTA-IA · Módulo de apoyo académico para revisión de Proyecto de Grado.</p>
+      <p class="small">La validación final corresponde al estudiante, tutor y docente.</p>
+    </div>
+  </footer>
+
+  <script src="access.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
