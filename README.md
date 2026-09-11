@@ -83,3 +83,10 @@ servicio de identidad o plataforma institucional.
 - Se ignoran diferencias de mayúsculas, acentos, espacios, saltos de línea y punto final.
 - Se muestra un **Objetivo general sugerido** y un **Título sugerido** construidos a partir de lo que escribió el estudiante.
 - Las sugerencias no copian los ejemplos de la página.
+
+
+## Acceso centralizado
+Este módulo carga la lista autorizada desde:
+`https://luisctito-sketch.github.io/proyecta-ia-acceso/access.js`
+
+Cuando se agreguen estudiantes, no se modifica este repositorio: solo se actualiza `access.js` en `proyecta-ia-acceso`.
