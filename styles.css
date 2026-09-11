@@ -173,3 +173,33 @@ body.access-locked { overflow: hidden; }
   margin-left:8px;
 }
 .logout-btn:hover{background:var(--soft)}
+
+
+.suggestion-box{
+  margin-top:22px;
+  padding:18px;
+  border-radius:12px;
+  background:#eef7ff;
+  border:1px solid #bfd8ee;
+}
+.suggestion-box h4{margin-top:0;color:var(--accent)}
+.suggestion-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.suggestion-grid>div{
+  background:#fff;
+  border:1px solid #d6e3ee;
+  border-radius:10px;
+  padding:14px;
+}
+.suggestion-grid h5{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+.suggestion-grid p{margin:0}
+@media(max-width:760px){
+  .suggestion-grid{grid-template-columns:1fr}
+}

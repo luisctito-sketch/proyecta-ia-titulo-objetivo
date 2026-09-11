@@ -75,3 +75,11 @@ No publiques en GitHub la lista original de estudiantes ni sus C.I. en texto pla
 
 Si más adelante se requiere acceso realmente privado, conviene migrar la autenticación a un backend,
 servicio de identidad o plataforma institucional.
+
+
+## Corrección v2 de concordancia
+
+- Se considera correcta la correspondencia cuando el título omite el verbo inicial y también puede omitir el artículo inicial `un/una/unos/unas`.
+- Se ignoran diferencias de mayúsculas, acentos, espacios, saltos de línea y punto final.
+- Se muestra un **Objetivo general sugerido** y un **Título sugerido** construidos a partir de lo que escribió el estudiante.
+- Las sugerencias no copian los ejemplos de la página.
